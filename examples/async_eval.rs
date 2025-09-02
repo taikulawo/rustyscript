@@ -17,7 +17,7 @@ fn main() -> Result<(), Error> {
     )?;
 
     // Can be run as blocking
-    runtime.eval::<u32>("sleep(1000).then(() => 1)")?;
+    runtime.eval::<u32>("sleep(1000).then(async () => {Deno.a=1;await Deno.connect({port: 80, hostname: 'www.baidu.com'});return 1;})")?;
 
     // Or as async
     let future = async {

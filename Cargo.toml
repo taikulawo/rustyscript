@@ -16,7 +16,7 @@ all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
 
 [features]
-default = ["worker", "safe_extensions"]
+default = ["worker", "safe_extensions", "all_extensions"]
 
 #
 # Feature groups
@@ -281,6 +281,10 @@ required-features = ["url_import"]
 
 [[example]]
 name = "async_javascript"
+required-features = ["web_stub"]
+
+[[example]]
+name = "call_deno_global_symbol"
 required-features = ["web_stub"]
 
 [[example]]
