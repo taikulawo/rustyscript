@@ -17,12 +17,14 @@ fn main() -> Result<(), Error> {
     )?;
 
     // Can be run as blocking
-    runtime.eval::<u32>(r#"sleep(1000).then(async () => {
+    runtime.eval::<u32>(
+        r#"sleep(1000).then(async () => {
         Deno.a=1;
         let res = await Deno.connect({port: 80, hostname: 'www.baidu.com'});
         console.log(res);
         return 1;
-    })"#)?;
+    })"#,
+    )?;
 
     // Or as async
     let future = async {
